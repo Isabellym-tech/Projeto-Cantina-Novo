@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Projeto.cantinanovo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbae8db7ff8ebac40efc5ab900c42033a4c7f939")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f4d7d4103247173b607af77ab341f80f8e82ce7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Projeto.cantinanovo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Projeto.cantinanovo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
