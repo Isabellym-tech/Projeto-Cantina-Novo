@@ -1,0 +1,16 @@
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.Form1.resources
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.csproj.GenerateResource.cache
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.AssemblyInfoInputs.cache
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.AssemblyInfo.cs
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.csproj.CoreCompileInputs.cache
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\bin\Debug\net8.0-windows\Projeto.cantinanovo.exe
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\bin\Debug\net8.0-windows\Projeto.cantinanovo.deps.json
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\bin\Debug\net8.0-windows\Projeto.cantinanovo.runtimeconfig.json
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\bin\Debug\net8.0-windows\Projeto.cantinanovo.dll
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\bin\Debug\net8.0-windows\Projeto.cantinanovo.pdb
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.dll
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\refint\Projeto.cantinanovo.dll
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.pdb
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\Projeto.cantinanovo.genruntimeconfig.cache
+C:\Users\25163110\source\repos\Projeto.cantinanovo\Projeto.cantinanovo\obj\Debug\net8.0-windows\ref\Projeto.cantinanovo.dll
