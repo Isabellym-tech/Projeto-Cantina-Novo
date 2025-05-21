@@ -4,13 +4,10 @@ namespace Projeto.cantinanovo
 {
     public partial class Form1 : Form
     {
-        private List<Produtos> produtos = new List<Produtos>();
-        private List<Produtos> pedido = new List<Produtos>();
         public Form1()
         {
             InitializeComponent();
             AdicionarProduto();
-            ListarProdutos();
             FormadePagamemto();
         }
 
@@ -19,12 +16,12 @@ namespace Projeto.cantinanovo
         public void AdicionarProduto()
         {
 
-            produtos.Add(new Produtos("Pão de Queijo", 5.00m, 10));
-            produtos.Add(new Produtos("X-Salada", 10.00m, 5));
-            produtos.Add(new Produtos("X-Bacon", 12.00m, 3));
-            produtos.Add(new Produtos("Refrigerante", 4.00m, 20));
-            produtos.Add(new Produtos("Suco Natural", 6.00m, 15));
-            produtos.Add(new Produtos("Água Mineral", 2.00m, 30));
+            Produtos.Items.Add(new Produtos($"Pão de Queijo", 5.00m, 1));
+            Produtos.Items.Add(new Produtos("X-Salada", 10.00m, 5));
+            Produtos.Items.Add(new Produtos("X-Bacon", 12.00m, 3));
+            Produtos.Items.Add(new Produtos("Refrigerante", 4.00m, 20));
+            Produtos.Items.Add(new Produtos("Suco Natural", 6.00m, 15));
+            Produtos.Items.Add(new Produtos("Água Mineral", 2.00m, 30));
 
         }
 
@@ -35,28 +32,8 @@ namespace Projeto.cantinanovo
             pagamento.Items.Add("Cartão de Débito");
             pagamento.Items.Add("Pix");
 
-            //pagamento.SelectedIndexChanged += pagamento_SelectedIndexChanged_1; // ? CORRETO
-
         }
 
-
-        public void ListarProdutos()
-        {
-            Produtos.Items.Clear();
-            foreach (var produto in produtos)
-            {
-                Produtos.Items.Add($"{produto.GetNome()} - {produto.GetPreco()}");
-            }
-        }
-
-        public void ListarPedido()
-        {
-            Pedido.Items.Clear();
-            foreach (var produto in pedido)
-            {
-                Pedido.Items.Add($"{produto.GetNome()} - {produto.GetPreco()}");
-            }
-        }
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -81,18 +58,45 @@ namespace Projeto.cantinanovo
 
         private void Adicionar_Click(object sender, EventArgs e)
         {
-            if (Produtos.SelectedIndex != -1)
+            // Verifica se o produto e a quantidade foram selecionados
+            if (Produtos.SelectedItem != null)
             {
-                var produtoSelecionado = produtos[Produtos.SelectedIndex];
-                pedido.Add(produtoSelecionado);
-                ListarPedido();
-                this.TotalPedido += produtoSelecionado.GetPreco();
+                Produtos produtoSelecionado = (Produtos)Produtos.SelectedItem;
+                int quantidade = (int)Quantidade.Value;
+
+                for (int i = 0; i < quantidade; i++)
+                {
+                    Pedido.Items.Add(produtoSelecionado);
+                }
+
+                decimal subtotal = produtoSelecionado.GetPreco() * quantidade;
+                TotalPedido += subtotal;
+
                 Total.Text = $"Total: R$ {TotalPedido:F2}";
+
+
             }
+
+            else
+            {
+                MessageBox.Show("Selecione um produto e a quantidade para adicionar ao pedido.");
+            }
+
         }
 
         private void Remover_Click(object sender, EventArgs e)
         {
+            if (Pedido.SelectedIndex != -1 || Produtos.SelectedItem != null)
+            {
+                // pegando o produto selecionado, da classe produto
+                Produtos produtoSelecionado = (Produtos)Pedido.SelectedItem;
+                Pedido.Items.Remove(produtoSelecionado);
+                TotalPedido -= produtoSelecionado.GetPreco();
+                Total.Text = $"Total: R$ {TotalPedido:F2}";
+
+
+            }
+
 
         }
 
@@ -106,15 +110,6 @@ namespace Projeto.cantinanovo
 
         }
 
-        private void Pedido_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Pedido.Items.Clear();
-            foreach (var produto in pedido)
-            {
-                //listBox1.Items.Add($"{produto.GetNome()}-{produto.GetPreco()}"); não preciso diss por conta do to string
-                Pedido.Items.Add(produto);
-            }
-        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -123,8 +118,61 @@ namespace Projeto.cantinanovo
 
         private void pagamento_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            //string opcaoSelecionada = pagamento.SelectedItem.ToString();
-            //MessageBox.Show("Você selecionou: " + opcaoSelecionada, "Forma de Pagamento");
+            string opcaoSelecionada = pagamento.SelectedItem.ToString();
+
+            if (opcaoSelecionada == "Cartão de Crédito" || opcaoSelecionada == "Cartão de Débito" || opcaoSelecionada == "Pix")
+            {
+                MessageBox.Show("Pedido realizado com sucesso! \nForma de pagamento: " + opcaoSelecionada, "Forma de Pagamento");
+                nota.Visible = false;
+            }
+
+            else if (opcaoSelecionada == "Dinheiro");
+            {
+                nota.Visible = true;
+
+            }
+
+        }
+
+        private void label3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Quantidade_ValueChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nota_TextChanged(object sender, EventArgs e)
+        {
+            decimal valorNota;
+            decimal troco = 0; 
+
+            if (decimal.TryParse(nota.Text, out valorNota))
+            {
+                valorNota = decimal.Parse(nota.Text);
+                Console.Write(valorNota);
+
+                if (valorNota>= TotalPedido)
+                {
+                    troco = valorNota - TotalPedido;
+                    MessageBox.Show($"Valor do pedido: {TotalPedido}, você me deu {valorNota} Troco: R$ {troco:F2}", "Troco");
+                }
+
+            }
         }
     }
 }
+

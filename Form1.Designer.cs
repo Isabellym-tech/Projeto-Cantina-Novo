@@ -28,22 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             Produtos = new ListBox();
             label1 = new Label();
             Adicionar = new Button();
             Remover = new Button();
-            button3 = new Button();
-            Adiconarq = new Button();
-            Diminuirq = new Button();
             txtpagamento = new Label();
             textBox1 = new TextBox();
             nome = new Label();
-            Local = new CheckBox();
-            Viagem = new CheckBox();
+            Sim = new CheckBox();
+            Não = new CheckBox();
             label2 = new Label();
             Pedido = new ListBox();
             Total = new Label();
             pagamento = new ComboBox();
+            Quantidade = new NumericUpDown();
+            label3 = new Label();
+            nota = new TextBox();
+            label4 = new Label();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            ((System.ComponentModel.ISupportInitialize)Quantidade).BeginInit();
             SuspendLayout();
             // 
             // Produtos
@@ -85,37 +89,10 @@
             Remover.UseVisualStyleBackColor = true;
             Remover.Click += Remover_Click;
             // 
-            // button3
-            // 
-            button3.Location = new Point(299, 235);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 54);
-            button3.TabIndex = 5;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // Adiconarq
-            // 
-            Adiconarq.Location = new Point(447, 105);
-            Adiconarq.Name = "Adiconarq";
-            Adiconarq.Size = new Size(28, 30);
-            Adiconarq.TabIndex = 6;
-            Adiconarq.Text = "+";
-            Adiconarq.UseVisualStyleBackColor = true;
-            // 
-            // Diminuirq
-            // 
-            Diminuirq.Location = new Point(481, 107);
-            Diminuirq.Name = "Diminuirq";
-            Diminuirq.Size = new Size(28, 26);
-            Diminuirq.TabIndex = 7;
-            Diminuirq.Text = " -";
-            Diminuirq.UseVisualStyleBackColor = true;
-            // 
             // txtpagamento
             // 
             txtpagamento.AutoSize = true;
-            txtpagamento.Location = new Point(797, 61);
+            txtpagamento.Location = new Point(791, 141);
             txtpagamento.Name = "txtpagamento";
             txtpagamento.Size = new Size(171, 15);
             txtpagamento.TabIndex = 8;
@@ -133,43 +110,43 @@
             // nome
             // 
             nome.AutoSize = true;
-            nome.Location = new Point(61, 40);
+            nome.Location = new Point(61, 45);
             nome.Name = "nome";
             nome.Size = new Size(107, 15);
             nome.TabIndex = 10;
             nome.Text = "Coloque seu nome";
             nome.Click += label2_Click_1;
             // 
-            // Local
+            // Sim
             // 
-            Local.AutoSize = true;
-            Local.Location = new Point(1080, 91);
-            Local.Name = "Local";
-            Local.Size = new Size(54, 19);
-            Local.TabIndex = 11;
-            Local.Text = "Local";
-            Local.UseVisualStyleBackColor = true;
-            Local.CheckedChanged += Local_CheckedChanged;
+            Sim.AutoSize = true;
+            Sim.Location = new Point(559, 380);
+            Sim.Name = "Sim";
+            Sim.Size = new Size(46, 19);
+            Sim.TabIndex = 11;
+            Sim.Text = "Sim";
+            Sim.UseVisualStyleBackColor = true;
+            Sim.CheckedChanged += Local_CheckedChanged;
             // 
-            // Viagem
+            // Não
             // 
-            Viagem.AutoSize = true;
-            Viagem.Location = new Point(1080, 116);
-            Viagem.Name = "Viagem";
-            Viagem.Size = new Size(66, 19);
-            Viagem.TabIndex = 12;
-            Viagem.Text = "Viagem";
-            Viagem.UseVisualStyleBackColor = true;
-            Viagem.CheckedChanged += Viagem_CheckedChanged;
+            Não.AutoSize = true;
+            Não.Location = new Point(559, 405);
+            Não.Name = "Não";
+            Não.Size = new Size(48, 19);
+            Não.TabIndex = 12;
+            Não.Text = "Não";
+            Não.UseVisualStyleBackColor = true;
+            Não.CheckedChanged += Viagem_CheckedChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(1036, 61);
+            label2.Location = new Point(559, 348);
             label2.Name = "label2";
-            label2.Size = new Size(193, 15);
+            label2.Size = new Size(86, 15);
             label2.TabIndex = 13;
-            label2.Text = "Selecione se é para viagem ou local";
+            label2.Text = "É para viagem?";
             // 
             // Pedido
             // 
@@ -179,14 +156,14 @@
             Pedido.Name = "Pedido";
             Pedido.Size = new Size(182, 229);
             Pedido.TabIndex = 14;
-            Pedido.SelectedIndexChanged += Pedido_SelectedIndexChanged;
             // 
             // Total
             // 
             Total.AutoSize = true;
-            Total.Location = new Point(558, 337);
+            Total.Font = new Font("Segoe UI", 18F);
+            Total.Location = new Point(791, 91);
             Total.Name = "Total";
-            Total.Size = new Size(33, 15);
+            Total.Size = new Size(65, 32);
             Total.TabIndex = 15;
             Total.Text = "Total";
             Total.Click += label3_Click;
@@ -194,35 +171,77 @@
             // pagamento
             // 
             pagamento.FormattingEnabled = true;
-            pagamento.Location = new Point(797, 104);
+            pagamento.Location = new Point(791, 176);
             pagamento.Name = "pagamento";
             pagamento.Size = new Size(131, 23);
             pagamento.TabIndex = 16;
             pagamento.SelectedIndexChanged += pagamento_SelectedIndexChanged_1;
+            // 
+            // Quantidade
+            // 
+            Quantidade.Location = new Point(60, 376);
+            Quantidade.Name = "Quantidade";
+            Quantidade.Size = new Size(228, 23);
+            Quantidade.TabIndex = 17;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(60, 348);
+            label3.Name = "label3";
+            label3.Size = new Size(129, 15);
+            label3.TabIndex = 18;
+            label3.Text = "Selecione a quantidade";
+            label3.Click += label3_Click_1;
+            // 
+            // nota
+            // 
+            nota.Location = new Point(791, 259);
+            nota.Name = "nota";
+            nota.Size = new Size(131, 23);
+            nota.TabIndex = 19;
+            nota.TextChanged += nota_TextChanged;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(791, 241);
+            label4.Name = "label4";
+            label4.Size = new Size(152, 15);
+            label4.TabIndex = 20;
+            label4.Text = "Informe o valor do dinheiro";
+            label4.Click += label4_Click;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1241, 450);
+            Controls.Add(label4);
+            Controls.Add(nota);
+            Controls.Add(label3);
+            Controls.Add(Quantidade);
             Controls.Add(pagamento);
             Controls.Add(Total);
             Controls.Add(Pedido);
             Controls.Add(label2);
-            Controls.Add(Viagem);
-            Controls.Add(Local);
+            Controls.Add(Não);
+            Controls.Add(Sim);
             Controls.Add(nome);
             Controls.Add(textBox1);
             Controls.Add(txtpagamento);
-            Controls.Add(Diminuirq);
-            Controls.Add(Adiconarq);
-            Controls.Add(button3);
             Controls.Add(Remover);
             Controls.Add(Adicionar);
             Controls.Add(label1);
             Controls.Add(Produtos);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)Quantidade).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,17 +252,19 @@
         private Label label1;
         private Button Adicionar;
         private Button Remover;
-        private Button button3;
-        private Button Adiconarq;
-        private Button Diminuirq;
         private Label txtpagamento;
         private TextBox textBox1;
         private Label nome;
-        private CheckBox Local;
-        private CheckBox Viagem;
+        private CheckBox Sim;
+        private CheckBox Não;
         private Label label2;
         private ListBox Pedido;
         private Label Total;
         private ComboBox pagamento;
+        private NumericUpDown Quantidade;
+        private Label label3;
+        private TextBox nota;
+        private Label label4;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

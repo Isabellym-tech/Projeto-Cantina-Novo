@@ -35,6 +35,15 @@ namespace Projeto.cantinanovo
         {
             return Quantidade;
         }
+        public override string ToString() // método que retorna uma representação em string do objeto.
+        {
+            return $"{Nome} - R$ {Preco:F2}"; // formata o preço com duas casas decimais.
+        }
     }
 }
 
+
+
+
+
+ 
