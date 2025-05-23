@@ -45,16 +45,23 @@
             Quantidade = new NumericUpDown();
             label3 = new Label();
             nota = new TextBox();
-            label4 = new Label();
+            lblNota = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            label4 = new Label();
+            finalizarPedido = new Button();
+            trocoMsg = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Quantidade).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // Produtos
             // 
             Produtos.FormattingEnabled = true;
             Produtos.ItemHeight = 15;
-            Produtos.Location = new Point(61, 91);
+            Produtos.Location = new Point(51, 148);
             Produtos.Name = "Produtos";
             Produtos.Size = new Size(227, 244);
             Produtos.TabIndex = 0;
@@ -63,7 +70,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(61, 73);
+            label1.Location = new Point(51, 121);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 2;
@@ -71,7 +78,7 @@
             // 
             // Adicionar
             // 
-            Adicionar.Location = new Point(300, 94);
+            Adicionar.Location = new Point(300, 279);
             Adicionar.Name = "Adicionar";
             Adicionar.Size = new Size(130, 41);
             Adicionar.TabIndex = 3;
@@ -81,7 +88,7 @@
             // 
             // Remover
             // 
-            Remover.Location = new Point(300, 161);
+            Remover.Location = new Point(301, 333);
             Remover.Name = "Remover";
             Remover.Size = new Size(130, 51);
             Remover.TabIndex = 4;
@@ -92,7 +99,7 @@
             // txtpagamento
             // 
             txtpagamento.AutoSize = true;
-            txtpagamento.Location = new Point(791, 141);
+            txtpagamento.Location = new Point(953, 176);
             txtpagamento.Name = "txtpagamento";
             txtpagamento.Size = new Size(171, 15);
             txtpagamento.TabIndex = 8;
@@ -101,7 +108,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(174, 37);
+            textBox1.Location = new Point(160, 97);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(171, 23);
             textBox1.TabIndex = 9;
@@ -110,7 +117,8 @@
             // nome
             // 
             nome.AutoSize = true;
-            nome.Location = new Point(61, 45);
+            nome.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nome.Location = new Point(47, 100);
             nome.Name = "nome";
             nome.Size = new Size(107, 15);
             nome.TabIndex = 10;
@@ -120,7 +128,7 @@
             // Sim
             // 
             Sim.AutoSize = true;
-            Sim.Location = new Point(559, 380);
+            Sim.Location = new Point(775, 172);
             Sim.Name = "Sim";
             Sim.Size = new Size(46, 19);
             Sim.TabIndex = 11;
@@ -131,7 +139,7 @@
             // Não
             // 
             Não.AutoSize = true;
-            Não.Location = new Point(559, 405);
+            Não.Location = new Point(775, 197);
             Não.Name = "Não";
             Não.Size = new Size(48, 19);
             Não.TabIndex = 12;
@@ -142,7 +150,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(559, 348);
+            label2.Location = new Point(775, 148);
             label2.Name = "label2";
             label2.Size = new Size(86, 15);
             label2.TabIndex = 13;
@@ -152,7 +160,7 @@
             // 
             Pedido.FormattingEnabled = true;
             Pedido.ItemHeight = 15;
-            Pedido.Location = new Point(559, 91);
+            Pedido.Location = new Point(559, 148);
             Pedido.Name = "Pedido";
             Pedido.Size = new Size(182, 229);
             Pedido.TabIndex = 14;
@@ -161,7 +169,7 @@
             // 
             Total.AutoSize = true;
             Total.Font = new Font("Segoe UI", 18F);
-            Total.Location = new Point(791, 91);
+            Total.Location = new Point(953, 121);
             Total.Name = "Total";
             Total.Size = new Size(65, 32);
             Total.TabIndex = 15;
@@ -171,7 +179,7 @@
             // pagamento
             // 
             pagamento.FormattingEnabled = true;
-            pagamento.Location = new Point(791, 176);
+            pagamento.Location = new Point(953, 197);
             pagamento.Name = "pagamento";
             pagamento.Size = new Size(131, 23);
             pagamento.TabIndex = 16;
@@ -179,15 +187,16 @@
             // 
             // Quantidade
             // 
-            Quantidade.Location = new Point(60, 376);
+            Quantidade.Location = new Point(300, 193);
             Quantidade.Name = "Quantidade";
-            Quantidade.Size = new Size(228, 23);
+            Quantidade.Size = new Size(149, 23);
             Quantidade.TabIndex = 17;
+            Quantidade.ValueChanged += Quantidade_ValueChanged_1;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(60, 348);
+            label3.Location = new Point(300, 148);
             label3.Name = "label3";
             label3.Size = new Size(129, 15);
             label3.TabIndex = 18;
@@ -196,33 +205,90 @@
             // 
             // nota
             // 
-            nota.Location = new Point(791, 259);
+            nota.Location = new Point(953, 280);
             nota.Name = "nota";
             nota.Size = new Size(131, 23);
             nota.TabIndex = 19;
+            nota.Visible = false;
             nota.TextChanged += nota_TextChanged;
             // 
-            // label4
+            // lblNota
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(791, 241);
-            label4.Name = "label4";
-            label4.Size = new Size(152, 15);
-            label4.TabIndex = 20;
-            label4.Text = "Informe o valor do dinheiro";
-            label4.Click += label4_Click;
+            lblNota.AutoSize = true;
+            lblNota.Location = new Point(953, 262);
+            lblNota.Name = "lblNota";
+            lblNota.Size = new Size(152, 15);
+            lblNota.TabIndex = 20;
+            lblNota.Text = "Informe o valor do dinheiro";
+            lblNota.Visible = false;
+            lblNota.Click += label4_Click;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(559, 121);
+            label4.Name = "label4";
+            label4.Size = new Size(101, 15);
+            label4.TabIndex = 21;
+            label4.Text = "Pedido do Cliente";
+            // 
+            // finalizarPedido
+            // 
+            finalizarPedido.Location = new Point(953, 382);
+            finalizarPedido.Name = "finalizarPedido";
+            finalizarPedido.Size = new Size(200, 78);
+            finalizarPedido.TabIndex = 22;
+            finalizarPedido.Text = "Finalizar Pedido";
+            finalizarPedido.UseVisualStyleBackColor = true;
+            finalizarPedido.Click += finalizarPedido_Click;
+            // 
+            // trocoMsg
+            // 
+            trocoMsg.AutoSize = true;
+            trocoMsg.Location = new Point(953, 317);
+            trocoMsg.Name = "trocoMsg";
+            trocoMsg.Size = new Size(40, 15);
+            trocoMsg.TabIndex = 23;
+            trocoMsg.Text = "Troco:";
+            trocoMsg.Visible = false;
+            trocoMsg.Click += label5_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ActiveCaptionText;
+            pictureBox1.ErrorImage = null;
+            pictureBox1.Location = new Point(-4, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1233, 60);
+            pictureBox1.TabIndex = 24;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Captura_de_tela_2025_05_23_103749;
+            pictureBox2.Location = new Point(12, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(146, 46);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 25;
+            pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1241, 450);
+            ClientSize = new Size(1241, 554);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Controls.Add(trocoMsg);
+            Controls.Add(finalizarPedido);
             Controls.Add(label4);
+            Controls.Add(lblNota);
             Controls.Add(nota);
             Controls.Add(label3);
             Controls.Add(Quantidade);
@@ -242,6 +308,8 @@
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)Quantidade).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -264,7 +332,12 @@
         private NumericUpDown Quantidade;
         private Label label3;
         private TextBox nota;
-        private Label label4;
+        private Label lblNota;
         private ContextMenuStrip contextMenuStrip1;
+        private Label label4;
+        private Button finalizarPedido;
+        private Label trocoMsg;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

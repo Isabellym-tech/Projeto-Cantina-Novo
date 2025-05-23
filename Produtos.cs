@@ -20,6 +20,7 @@ namespace Projeto.cantinanovo
             Nome = nome;
             Preco = preco;
             Quantidade = quantidade;
+            
         }
 
         public string GetNome() // permite acessar o nome do produto fora da classe.

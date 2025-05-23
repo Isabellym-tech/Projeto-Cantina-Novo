@@ -1,32 +1,46 @@
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Projeto.cantinanovo
 {
     public partial class Form1 : Form
     {
+        //Produtos List<ListProduto> = new List<Produtos>();
         public Form1()
         {
             InitializeComponent();
             AdicionarProduto();
             FormadePagamemto();
+            Quantidade.Minimum = 1;
+            BackColor = Color.FromArgb(124, 122, 106);
+            pictureBox1.BackColor = Color.FromArgb(230, 255, 0);
+            pictureBox2.BackColor = Color.FromArgb(230, 255, 0);
+            Produtos.BackColor = Color.FromArgb(202,196,183);
+
+
         }
 
 
         private decimal TotalPedido = 0;
         public void AdicionarProduto()
         {
-
-            Produtos.Items.Add(new Produtos($"Pão de Queijo", 5.00m, 1));
-            Produtos.Items.Add(new Produtos("X-Salada", 10.00m, 5));
-            Produtos.Items.Add(new Produtos("X-Bacon", 12.00m, 3));
-            Produtos.Items.Add(new Produtos("Refrigerante", 4.00m, 20));
-            Produtos.Items.Add(new Produtos("Suco Natural", 6.00m, 15));
-            Produtos.Items.Add(new Produtos("Água Mineral", 2.00m, 30));
+            int quantidade = (int)Quantidade.Value;
+            Produtos.Items.Add(new Produtos($"Pão de Queijo", 5.00m, quantidade));
+            Produtos.Items.Add(new Produtos("Coxinha", 5.00m, quantidade));
+            Produtos.Items.Add(new Produtos("Pastel de Carne", 6.00m, quantidade));
+            Produtos.Items.Add(new Produtos("Pastel dequeijo", 5.50m, quantidade));
+            Produtos.Items.Add(new Produtos("Suco Natural (300ml)", 4.00m, 15));
+            Produtos.Items.Add(new Produtos("Refrigerante Lata", 4.50m, quantidade));
+            Produtos.Items.Add(new Produtos("Hambúrguer Simples", 8.00m, quantidade));
+            Produtos.Items.Add(new Produtos("Hambúrguer com Queijo", 9.00m, quantidade));
+            Produtos.Items.Add(new Produtos("X-Tudo", 12.00m, quantidade));
+            Produtos.Items.Add(new Produtos("Água Mineral (500ml)", 2.50m, quantidade));
 
         }
 
         public void FormadePagamemto()
         {
+
             pagamento.Items.Add("Dinheiro");
             pagamento.Items.Add("Cartão de Crédito");
             pagamento.Items.Add("Cartão de Débito");
@@ -64,15 +78,19 @@ namespace Projeto.cantinanovo
                 Produtos produtoSelecionado = (Produtos)Produtos.SelectedItem;
                 int quantidade = (int)Quantidade.Value;
 
-                for (int i = 0; i < quantidade; i++)
-                {
-                    Pedido.Items.Add(produtoSelecionado);
-                }
+
+
+
+                Pedido.Items.Add($"{produtoSelecionado.GetNome()} (x{quantidade})");
+     
+
 
                 decimal subtotal = produtoSelecionado.GetPreco() * quantidade;
                 TotalPedido += subtotal;
 
                 Total.Text = $"Total: R$ {TotalPedido:F2}";
+
+                Quantidade.Value = 1; // Reseta a quantidade para 1 após adicionar o produto ao pedido
 
 
             }
@@ -120,17 +138,28 @@ namespace Projeto.cantinanovo
         {
             string opcaoSelecionada = pagamento.SelectedItem.ToString();
 
-            if (opcaoSelecionada == "Cartão de Crédito" || opcaoSelecionada == "Cartão de Débito" || opcaoSelecionada == "Pix")
-            {
-                MessageBox.Show("Pedido realizado com sucesso! \nForma de pagamento: " + opcaoSelecionada, "Forma de Pagamento");
-                nota.Visible = false;
-            }
 
-            else if (opcaoSelecionada == "Dinheiro");
+
+            if (opcaoSelecionada == "Dinheiro")
             {
                 nota.Visible = true;
+                lblNota.Visible = true;
+                trocoMsg.Visible = true;
+
+
+
 
             }
+            else
+            {
+
+                nota.Visible = false;
+                lblNota.Visible = false;
+                trocoMsg.Visible = false;
+                // MessageBox.Show("Pedido realizado com sucesso! \nForma de pagamento: " + opcaoSelecionada, "Forma de Pagamento");
+
+            }
+
 
         }
 
@@ -158,20 +187,42 @@ namespace Projeto.cantinanovo
         private void nota_TextChanged(object sender, EventArgs e)
         {
             decimal valorNota;
-            decimal troco = 0; 
+            decimal troco = 0;
+
 
             if (decimal.TryParse(nota.Text, out valorNota))
             {
                 valorNota = decimal.Parse(nota.Text);
                 Console.Write(valorNota);
 
-                if (valorNota>= TotalPedido)
+                if (valorNota >= TotalPedido)
                 {
                     troco = valorNota - TotalPedido;
-                    MessageBox.Show($"Valor do pedido: {TotalPedido}, você me deu {valorNota} Troco: R$ {troco:F2}", "Troco");
+                    trocoMsg.Text = $"Troco: R$ {troco:F2}";
+                }
+                else
+                {
+                    trocoMsg.Text = "Valor insuficiente para o pagamento.";
                 }
 
+
             }
+        }
+
+        private void Quantidade_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void finalizarPedido_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Pedido realizado com sucesso! \nForma de pagamento: {pagamento.SelectedItem.ToString()}", "Forma de Pagamento");
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+          
+
         }
     }
 }
