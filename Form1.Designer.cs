@@ -52,16 +52,18 @@
             trocoMsg = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)Quantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // Produtos
             // 
             Produtos.FormattingEnabled = true;
             Produtos.ItemHeight = 15;
-            Produtos.Location = new Point(51, 148);
+            Produtos.Location = new Point(51, 172);
             Produtos.Name = "Produtos";
             Produtos.Size = new Size(227, 244);
             Produtos.TabIndex = 0;
@@ -70,17 +72,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 121);
+            label1.Font = new Font("Agrandir Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(51, 148);
             label1.Name = "label1";
-            label1.Size = new Size(55, 15);
+            label1.Size = new Size(76, 21);
             label1.TabIndex = 2;
-            label1.Text = "Cardapio";
+            label1.Text = "Cardápio";
             // 
             // Adicionar
             // 
-            Adicionar.Location = new Point(300, 279);
+            Adicionar.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Adicionar.Location = new Point(300, 267);
             Adicionar.Name = "Adicionar";
-            Adicionar.Size = new Size(130, 41);
+            Adicionar.Size = new Size(130, 53);
             Adicionar.TabIndex = 3;
             Adicionar.Text = "Adicionar ";
             Adicionar.UseVisualStyleBackColor = true;
@@ -88,6 +92,7 @@
             // 
             // Remover
             // 
+            Remover.Font = new Font("Agrandir", 12F, FontStyle.Bold);
             Remover.Location = new Point(301, 333);
             Remover.Name = "Remover";
             Remover.Size = new Size(130, 51);
@@ -99,38 +104,40 @@
             // txtpagamento
             // 
             txtpagamento.AutoSize = true;
-            txtpagamento.Location = new Point(953, 176);
+            txtpagamento.Font = new Font("Agrandir", 14F, FontStyle.Bold);
+            txtpagamento.Location = new Point(948, 169);
             txtpagamento.Name = "txtpagamento";
-            txtpagamento.Size = new Size(171, 15);
+            txtpagamento.Size = new Size(286, 25);
             txtpagamento.TabIndex = 8;
-            txtpagamento.Text = "Escolha a forma de pagamento";
+            txtpagamento.Text = "Escolha a forma de pagamento:";
             txtpagamento.Click += label2_Click;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(160, 97);
+            textBox1.Location = new Point(207, 96);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(171, 23);
+            textBox1.Size = new Size(161, 23);
             textBox1.TabIndex = 9;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
             // nome
             // 
             nome.AutoSize = true;
-            nome.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nome.Location = new Point(47, 100);
+            nome.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            nome.Location = new Point(51, 95);
             nome.Name = "nome";
-            nome.Size = new Size(107, 15);
+            nome.Size = new Size(150, 21);
             nome.TabIndex = 10;
-            nome.Text = "Coloque seu nome";
+            nome.Text = "Coloque seu nome:";
             nome.Click += label2_Click_1;
             // 
             // Sim
             // 
             Sim.AutoSize = true;
+            Sim.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Sim.Location = new Point(775, 172);
             Sim.Name = "Sim";
-            Sim.Size = new Size(46, 19);
+            Sim.Size = new Size(57, 25);
             Sim.TabIndex = 11;
             Sim.Text = "Sim";
             Sim.UseVisualStyleBackColor = true;
@@ -139,9 +146,10 @@
             // Não
             // 
             Não.AutoSize = true;
+            Não.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Não.Location = new Point(775, 197);
             Não.Name = "Não";
-            Não.Size = new Size(48, 19);
+            Não.Size = new Size(58, 25);
             Não.TabIndex = 12;
             Não.Text = "Não";
             Não.UseVisualStyleBackColor = true;
@@ -150,9 +158,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Agrandir", 12F, FontStyle.Bold);
             label2.Location = new Point(775, 148);
             label2.Name = "label2";
-            label2.Size = new Size(86, 15);
+            label2.Size = new Size(124, 21);
             label2.TabIndex = 13;
             label2.Text = "É para viagem?";
             // 
@@ -160,18 +169,18 @@
             // 
             Pedido.FormattingEnabled = true;
             Pedido.ItemHeight = 15;
-            Pedido.Location = new Point(559, 148);
+            Pedido.Location = new Point(559, 172);
             Pedido.Name = "Pedido";
-            Pedido.Size = new Size(182, 229);
+            Pedido.Size = new Size(182, 244);
             Pedido.TabIndex = 14;
             // 
             // Total
             // 
             Total.AutoSize = true;
-            Total.Font = new Font("Segoe UI", 18F);
-            Total.Location = new Point(953, 121);
+            Total.Font = new Font("Agrandir", 20F, FontStyle.Bold);
+            Total.Location = new Point(948, 120);
             Total.Name = "Total";
-            Total.Size = new Size(65, 32);
+            Total.Size = new Size(79, 36);
             Total.TabIndex = 15;
             Total.Text = "Total";
             Total.Click += label3_Click;
@@ -179,7 +188,7 @@
             // pagamento
             // 
             pagamento.FormattingEnabled = true;
-            pagamento.Location = new Point(953, 197);
+            pagamento.Location = new Point(952, 197);
             pagamento.Name = "pagamento";
             pagamento.Size = new Size(131, 23);
             pagamento.TabIndex = 16;
@@ -187,7 +196,7 @@
             // 
             // Quantidade
             // 
-            Quantidade.Location = new Point(300, 193);
+            Quantidade.Location = new Point(301, 185);
             Quantidade.Name = "Quantidade";
             Quantidade.Size = new Size(149, 23);
             Quantidade.TabIndex = 17;
@@ -196,9 +205,10 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Agrandir", 12F, FontStyle.Bold);
             label3.Location = new Point(300, 148);
             label3.Name = "label3";
-            label3.Size = new Size(129, 15);
+            label3.Size = new Size(182, 21);
             label3.TabIndex = 18;
             label3.Text = "Selecione a quantidade";
             label3.Click += label3_Click_1;
@@ -215,11 +225,12 @@
             // lblNota
             // 
             lblNota.AutoSize = true;
-            lblNota.Location = new Point(953, 262);
+            lblNota.Font = new Font("Agrandir", 14F, FontStyle.Bold);
+            lblNota.Location = new Point(953, 252);
             lblNota.Name = "lblNota";
-            lblNota.Size = new Size(152, 15);
+            lblNota.Size = new Size(253, 25);
             lblNota.TabIndex = 20;
-            lblNota.Text = "Informe o valor do dinheiro";
+            lblNota.Text = "Informe o valor do dinheiro:";
             lblNota.Visible = false;
             lblNota.Click += label4_Click;
             // 
@@ -231,14 +242,16 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(559, 121);
+            label4.Font = new Font("Agrandir", 12F, FontStyle.Bold);
+            label4.Location = new Point(592, 145);
             label4.Name = "label4";
-            label4.Size = new Size(101, 15);
+            label4.Size = new Size(140, 21);
             label4.TabIndex = 21;
             label4.Text = "Pedido do Cliente";
             // 
             // finalizarPedido
             // 
+            finalizarPedido.Font = new Font("Agrandir", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             finalizarPedido.Location = new Point(953, 382);
             finalizarPedido.Name = "finalizarPedido";
             finalizarPedido.Size = new Size(200, 78);
@@ -250,9 +263,10 @@
             // trocoMsg
             // 
             trocoMsg.AutoSize = true;
+            trocoMsg.Font = new Font("Agrandir", 12.7499981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             trocoMsg.Location = new Point(953, 317);
             trocoMsg.Name = "trocoMsg";
-            trocoMsg.Size = new Size(40, 15);
+            trocoMsg.Size = new Size(60, 23);
             trocoMsg.TabIndex = 23;
             trocoMsg.Text = "Troco:";
             trocoMsg.Visible = false;
@@ -278,11 +292,22 @@
             pictureBox2.TabIndex = 25;
             pictureBox2.TabStop = false;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Design_sem_nome__1__removebg_preview__1_;
+            pictureBox3.Location = new Point(559, 139);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(27, 30);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 26;
+            pictureBox3.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1241, 554);
+            ClientSize = new Size(1266, 554);
+            Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(trocoMsg);
@@ -310,6 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)Quantidade).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,5 +365,6 @@
         private Label trocoMsg;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private PictureBox pictureBox3;
     }
 }
