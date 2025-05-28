@@ -15,8 +15,8 @@ namespace Projeto.cantinanovo
             BackColor = Color.FromArgb(124, 122, 106);
             pictureBox1.BackColor = Color.FromArgb(230, 255, 0);
             pictureBox2.BackColor = Color.FromArgb(230, 255, 0);
-            
-            Produtos.BackColor = Color.FromArgb(202,196,183);
+
+            Produtos.BackColor = Color.FromArgb(202, 196, 183);
             Pedido.BackColor = Color.FromArgb(202, 196, 183);
             Color corTexto = Color.FromArgb(243, 241, 238);
             Total.BackColor = Color.FromArgb(230, 255, 0);
@@ -31,7 +31,7 @@ namespace Projeto.cantinanovo
             txtpagamento.ForeColor = corTexto;
             lblNota.ForeColor = corTexto;
             trocoMsg.ForeColor = corTexto;
-            Quantidade.BackColor = Color.FromArgb(243,241,238);
+            Quantidade.BackColor = Color.FromArgb(243, 241, 238);
             pagamento.BackColor = Color.FromArgb(243, 241, 238);
             nota.BackColor = Color.FromArgb(243, 241, 238);
             textBox1.BackColor = Color.FromArgb(243, 241, 238);
@@ -103,7 +103,7 @@ namespace Projeto.cantinanovo
 
 
                 Pedido.Items.Add($"{produtoSelecionado.GetNome()} (x{quantidade})");
-     
+
 
 
                 decimal subtotal = produtoSelecionado.GetPreco() * quantidade;
@@ -242,8 +242,14 @@ namespace Projeto.cantinanovo
 
         private void label5_Click(object sender, EventArgs e)
         {
-          
 
+
+        }
+
+        private void balcao_Click(object sender, EventArgs e)
+        {
+            Balcao minhaNovaJanela = new Balcao();
+            minhaNovaJanela.Show(); // Exibe a nova janela
         }
     }
 }

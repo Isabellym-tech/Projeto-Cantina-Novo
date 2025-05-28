@@ -53,6 +53,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            balcao = new Button();
             ((System.ComponentModel.ISupportInitialize)Quantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -302,11 +303,22 @@
             pictureBox3.TabIndex = 26;
             pictureBox3.TabStop = false;
             // 
+            // balcao
+            // 
+            balcao.Location = new Point(979, 490);
+            balcao.Name = "balcao";
+            balcao.Size = new Size(143, 35);
+            balcao.TabIndex = 27;
+            balcao.Text = "Balcão";
+            balcao.UseVisualStyleBackColor = true;
+            balcao.Click += balcao_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1266, 554);
+            Controls.Add(balcao);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -366,5 +378,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Button balcao;
     }
 }
