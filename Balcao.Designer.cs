@@ -30,18 +30,18 @@
         {
             statusStrip1 = new StatusStrip();
             statusStrip2 = new StatusStrip();
-            listViewPedidos = new ListView();
+            Pedidos = new ListView();
             listView2 = new ListView();
             panel1 = new Panel();
+            tipoPedido = new Label();
+            formaPagamento = new Label();
+            dataHora = new Label();
             fecharDetalhes = new Button();
             Cliente = new Label();
             checkedListBox1 = new CheckedListBox();
             button1 = new Button();
             botaoEntregar = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            dataHora = new Label();
-            formaPagamento = new Label();
-            tipoPedido = new Label();
             label1 = new Label();
             label2 = new Label();
             panel1.SuspendLayout();
@@ -63,13 +63,14 @@
             statusStrip2.TabIndex = 3;
             statusStrip2.Text = "statusStrip2";
             // 
-            // listViewPedidos
+            // Pedidos
             // 
-            listViewPedidos.Location = new Point(56, 71);
-            listViewPedidos.Name = "listViewPedidos";
-            listViewPedidos.Size = new Size(361, 444);
-            listViewPedidos.TabIndex = 4;
-            listViewPedidos.UseCompatibleStateImageBehavior = false;
+            Pedidos.Location = new Point(56, 71);
+            Pedidos.Name = "Pedidos";
+            Pedidos.Size = new Size(361, 444);
+            Pedidos.TabIndex = 4;
+            Pedidos.UseCompatibleStateImageBehavior = false;
+            Pedidos.SelectedIndexChanged += listViewPedidos_SelectedIndexChanged;
             // 
             // listView2
             // 
@@ -94,6 +95,33 @@
             panel1.Size = new Size(317, 298);
             panel1.TabIndex = 6;
             panel1.Paint += panel1_Paint;
+            // 
+            // tipoPedido
+            // 
+            tipoPedido.AutoSize = true;
+            tipoPedido.Location = new Point(21, 85);
+            tipoPedido.Name = "tipoPedido";
+            tipoPedido.Size = new Size(34, 15);
+            tipoPedido.TabIndex = 13;
+            tipoPedido.Text = "Tipo:";
+            // 
+            // formaPagamento
+            // 
+            formaPagamento.AutoSize = true;
+            formaPagamento.Location = new Point(21, 60);
+            formaPagamento.Name = "formaPagamento";
+            formaPagamento.Size = new Size(124, 15);
+            formaPagamento.TabIndex = 12;
+            formaPagamento.Text = "Forma de Pagamento:";
+            // 
+            // dataHora
+            // 
+            dataHora.AutoSize = true;
+            dataHora.Location = new Point(19, 36);
+            dataHora.Name = "dataHora";
+            dataHora.Size = new Size(65, 15);
+            dataHora.TabIndex = 11;
+            dataHora.Text = "Data/Hora:";
             // 
             // fecharDetalhes
             // 
@@ -140,33 +168,6 @@
             botaoEntregar.Text = "Entregar";
             botaoEntregar.UseVisualStyleBackColor = true;
             // 
-            // dataHora
-            // 
-            dataHora.AutoSize = true;
-            dataHora.Location = new Point(19, 36);
-            dataHora.Name = "dataHora";
-            dataHora.Size = new Size(65, 15);
-            dataHora.TabIndex = 11;
-            dataHora.Text = "Data/Hora:";
-            // 
-            // formaPagamento
-            // 
-            formaPagamento.AutoSize = true;
-            formaPagamento.Location = new Point(21, 60);
-            formaPagamento.Name = "formaPagamento";
-            formaPagamento.Size = new Size(124, 15);
-            formaPagamento.TabIndex = 12;
-            formaPagamento.Text = "Forma de Pagamento:";
-            // 
-            // tipoPedido
-            // 
-            tipoPedido.AutoSize = true;
-            tipoPedido.Location = new Point(21, 85);
-            tipoPedido.Name = "tipoPedido";
-            tipoPedido.Size = new Size(34, 15);
-            tipoPedido.TabIndex = 13;
-            tipoPedido.Text = "Tipo:";
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -197,7 +198,7 @@
             Controls.Add(botaoEntregar);
             Controls.Add(panel1);
             Controls.Add(listView2);
-            Controls.Add(listViewPedidos);
+            Controls.Add(Pedidos);
             Controls.Add(statusStrip2);
             Controls.Add(statusStrip1);
             Name = "Balcao";
@@ -211,7 +212,7 @@
         #endregion
         private StatusStrip statusStrip1;
         private StatusStrip statusStrip2;
-        private ListView listViewPedidos;
+        private ListView Pedidos;
         private ListView listView2;
         private Panel panel1;
         private Button button1;

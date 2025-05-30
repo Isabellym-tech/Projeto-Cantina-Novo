@@ -38,7 +38,7 @@
             nome = new Label();
             Sim = new CheckBox();
             Não = new CheckBox();
-            label2 = new Label();
+            Viagem = new Label();
             Pedido = new ListBox();
             Total = new Label();
             pagamento = new ComboBox();
@@ -54,6 +54,7 @@
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             balcao = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)Quantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -156,15 +157,15 @@
             Não.UseVisualStyleBackColor = true;
             Não.CheckedChanged += Viagem_CheckedChanged;
             // 
-            // label2
+            // Viagem
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Agrandir", 12F, FontStyle.Bold);
-            label2.Location = new Point(775, 148);
-            label2.Name = "label2";
-            label2.Size = new Size(124, 21);
-            label2.TabIndex = 13;
-            label2.Text = "É para viagem?";
+            Viagem.AutoSize = true;
+            Viagem.Font = new Font("Agrandir", 12F, FontStyle.Bold);
+            Viagem.Location = new Point(775, 148);
+            Viagem.Name = "Viagem";
+            Viagem.Size = new Size(124, 21);
+            Viagem.TabIndex = 13;
+            Viagem.Text = "É para viagem?";
             // 
             // Pedido
             // 
@@ -174,6 +175,7 @@
             Pedido.Name = "Pedido";
             Pedido.Size = new Size(182, 244);
             Pedido.TabIndex = 14;
+            Pedido.SelectedIndexChanged += Pedido_SelectedIndexChanged;
             // 
             // Total
             // 
@@ -313,11 +315,21 @@
             balcao.UseVisualStyleBackColor = true;
             balcao.Click += balcao_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(383, 92);
+            button1.Name = "button1";
+            button1.Size = new Size(87, 29);
+            button1.TabIndex = 28;
+            button1.Text = "Enviar";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1266, 554);
+            Controls.Add(button1);
             Controls.Add(balcao);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -332,7 +344,7 @@
             Controls.Add(pagamento);
             Controls.Add(Total);
             Controls.Add(Pedido);
-            Controls.Add(label2);
+            Controls.Add(Viagem);
             Controls.Add(Não);
             Controls.Add(Sim);
             Controls.Add(nome);
@@ -363,7 +375,7 @@
         private Label nome;
         private CheckBox Sim;
         private CheckBox Não;
-        private Label label2;
+        private Label Viagem;
         private ListBox Pedido;
         private Label Total;
         private ComboBox pagamento;
@@ -379,5 +391,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private Button balcao;
+        private Button button1;
     }
 }

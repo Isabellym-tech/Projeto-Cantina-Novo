@@ -22,7 +22,7 @@ namespace Projeto.cantinanovo
             Total.BackColor = Color.FromArgb(230, 255, 0);
             finalizarPedido.BackColor = Color.FromArgb(230, 255, 0);
             label1.ForeColor = corTexto;
-            label2.ForeColor = corTexto;
+            Viagem.ForeColor = corTexto;
             label3.ForeColor = corTexto;
             label4.ForeColor = corTexto;
             Sim.ForeColor = corTexto;
@@ -237,7 +237,16 @@ namespace Projeto.cantinanovo
 
         private void finalizarPedido_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"Pedido realizado com sucesso! \nForma de pagamento: {pagamento.SelectedItem.ToString()}", "Forma de Pagamento");
+            //MessageBox.Show($"Pedido realizado com sucesso! \nForma de pagamento: {pagamento.SelectedItem.ToString()}", "Forma de Pagamento");
+
+            DialogResult resultado = MessageBox.Show("Finalizar pedido e adicionar à lista?", "Confirmação", MessageBoxButtons.YesNo);
+
+            if (resultado == DialogResult.Yes)
+            {
+                // Adiciona o pedido na listView
+            }
+
+
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -250,6 +259,11 @@ namespace Projeto.cantinanovo
         {
             Balcao minhaNovaJanela = new Balcao();
             minhaNovaJanela.Show(); // Exibe a nova janela
+        }
+
+        private void Pedido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+               
         }
     }
 }
